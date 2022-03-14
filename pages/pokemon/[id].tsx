@@ -2,6 +2,10 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { Layout } from '../../components/layouts'
 
+interface Props {
+  pokemon: any
+}
+
  const PokemonPage = () => {
   const router = useRouter();
   return (
