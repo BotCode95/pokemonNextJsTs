@@ -2,7 +2,7 @@ import type { NextPage, GetStaticProps} from 'next'
 import { Layout } from '../components/layouts/Layout';
 import pokeApi from '../api/pokeApi';
 import { PokemonListResponse, SmallPokemon } from '../interfaces/pokemon-list';
-import { Grid, Card, Row, Text} from '@nextui-org/react';
+import { Grid} from '@nextui-org/react';
 import styles from '../styles/Home.module.css'
 import { PokemonCard } from '../components/layouts/pokemon';
 interface Props {
@@ -17,7 +17,6 @@ const HomePage: NextPage<Props>= ({pokemons}) => {
       {pokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon}/>
       ))}
-
       </Grid.Container>
     </Layout>
   )
@@ -29,7 +28,7 @@ export const getStaticProps : GetStaticProps = async(ctx) => {
   const pokemons: SmallPokemon[] = data.results.map((poke,i) => ({
     ...poke,
     id: i + 1,
-    img: `https://raw.githubsercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i + 1 }.svg`
+    img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${i + 1 }.svg`
     })
   )
   return {
